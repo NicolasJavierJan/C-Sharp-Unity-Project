@@ -8,7 +8,7 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,6 +16,7 @@ public class MainController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
+            PlayerPrefs.DeleteKey("FunMode");
             SceneManager.LoadScene(0);
         }
     }
@@ -23,8 +24,10 @@ public class MainController : MonoBehaviour
     public void QuitGame()
     {
         #if UNITY_EDITOR
+            PlayerPrefs.DeleteKey("FunMode");
             UnityEditor.EditorApplication.isPlaying = false;
         #endif
+            PlayerPrefs.DeleteKey("FunMode");
             Application.Quit();
     }
 
