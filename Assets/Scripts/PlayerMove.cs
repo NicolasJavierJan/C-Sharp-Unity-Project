@@ -16,6 +16,10 @@ public class PlayerMove : MonoBehaviour
 
     private Vector3 _movement = Vector3.zero;
 
+    // Getting the Plane to bound the character inside.
+    private MeshRenderer plane;
+    private Bounds planeBounds;
+
     // Derived velocity gain per second
     public float MoveVelocityGain
     {
@@ -31,13 +35,18 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        plane = GameObject.FindGameObjectWithTag("Ground").GetComponent<MeshRenderer>();
+        planeBounds = plane.bounds;
     }
 
     // Update is called once per frame
     void Update()
     {
         Movement();
+        Vector3 clampedPosition = transform.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, planeBounds.min.x, planeBounds.max.x);
+        clampedPosition.z = Mathf.Clamp(clampedPosition.z, planeBounds.min.z, planeBounds.max.z);
+        transform.position = clampedPosition;
     }
 
     void Movement() {
