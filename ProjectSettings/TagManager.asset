@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - LocalPost
   - GoalKeeper
+  - Enemy
   layers:
   - Default
   - TransparentFX

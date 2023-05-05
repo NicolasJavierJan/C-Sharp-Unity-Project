@@ -46,7 +46,8 @@ public class PlayerMove : MonoBehaviour
         Vector3 clampedPosition = transform.position;
         clampedPosition.x = Mathf.Clamp(clampedPosition.x, planeBounds.min.x, planeBounds.max.x);
         clampedPosition.z = Mathf.Clamp(clampedPosition.z, planeBounds.min.z, planeBounds.max.z);
-        transform.position = clampedPosition;
+        clampedPosition.y = 0;
+        transform.position = clampedPosition;        
     }
 
     void Movement() {
