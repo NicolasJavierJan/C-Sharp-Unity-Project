@@ -12,7 +12,6 @@ public class PanelBackgroundColorChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(PlayerPrefs.GetInt("FunMode"));
         if (SceneManager.GetActiveScene().name == "MainScene")
         {
             Graphic panelImage = panel.GetComponent<Graphic>();
@@ -22,7 +21,6 @@ public class PanelBackgroundColorChanger : MonoBehaviour
             if (!PlayerPrefs.HasKey("FunMode"))
             {
                 PlayerPrefs.SetInt("FunMode", 0);
-                Debug.Log("Key set to 0");
             }
         }
     }
@@ -55,7 +53,6 @@ public class PanelBackgroundColorChanger : MonoBehaviour
             } else {
                 Color newColor = new Color(0f, 0.6901f, 0.6784f, 1f);
                 panelImage.color = newColor;
-                Debug.Log(panelImage.color);
             }
         }
         

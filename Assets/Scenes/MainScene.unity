@@ -202,7 +202,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 131020309}
   m_OnClick:
     m_PersistentCalls:
@@ -515,6 +515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4387ecc7d2e09424b81002ec44094d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Level2: {fileID: 0}
+  Level3: {fileID: 0}
 --- !u!1 &214510345
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +662,6 @@ GameObject:
   m_Component:
   - component: {fileID: 433051630}
   - component: {fileID: 433051631}
-  - component: {fileID: 433051632}
   m_Layer: 0
   m_Name: MainGameController
   m_TagString: Untagged
@@ -695,21 +696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4387ecc7d2e09424b81002ec44094d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &433051632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433051629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a921170210b24d34b810683a04781046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ButtonTextMode: {fileID: 0}
-  ButtonDisclaimer: {fileID: 0}
-  BigScreenTextMode: {fileID: 0}
+  Level2: {fileID: 131020308}
+  Level3: {fileID: 2102518921}
 --- !u!1 &672901696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,7 +2506,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2102518922}
   m_OnClick:
     m_PersistentCalls:
