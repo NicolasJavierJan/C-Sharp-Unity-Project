@@ -51,6 +51,7 @@ public class Goal : MonoBehaviour
     IEnumerator WaitSomeTime()
     {
         yield return new WaitForSeconds(4);
-        SceneManager.LoadScene("Level1Scene");
+        int activeScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(activeScene);
     }
 }

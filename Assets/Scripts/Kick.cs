@@ -12,6 +12,9 @@ public class Kick : MonoBehaviour
     private Bounds planeBounds;
     public TMP_Text goal;
     public bool outOfBounds = false;
+    public Timer timer;
+    public BoxCollider goalPost;
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,13 +59,20 @@ public class Kick : MonoBehaviour
                 rigidBody.AddForce(forward * 20.0f, ForceMode.Impulse);
                 
             }
+        } else if (other.CompareTag("GoalKeeper"))
+        {
+            goal.text = "BAD!"; 
+            timer.enabled = false;
+            goalPost.enabled = false;
+            StartCoroutine(WaitSomeTime());
         }
     }
 
     IEnumerator WaitSomeTime()
     {
         yield return new WaitForSeconds(4);
-        SceneManager.LoadScene("Level1Scene");
+        int activeScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(activeScene);
     }
 
     

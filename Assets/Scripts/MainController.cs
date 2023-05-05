@@ -35,4 +35,9 @@ public class MainController : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void PlayLevel2()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
