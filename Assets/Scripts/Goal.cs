@@ -42,7 +42,7 @@ public class Goal : MonoBehaviour
                 goal.text = "GOAL";
                 goalMade = true;
                 kickScript.enabled = false;
-                StartCoroutine(WaitSomeTime());
+                StartCoroutine(ChangeLevel());
                 cameraScript.enabled = false;
             }            
         }
@@ -53,5 +53,20 @@ public class Goal : MonoBehaviour
         yield return new WaitForSeconds(4);
         int activeScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(activeScene);
+    }
+
+    IEnumerator ChangeLevel()
+    {
+        yield return new WaitForSeconds(4);
+        int activeScene = SceneManager.GetActiveScene().buildIndex;
+        if (activeScene == 1){
+            PlayerPrefs.SetInt("Level", 2);
+            SceneManager.LoadScene(2);
+        } else if (activeScene == 2) {
+            PlayerPrefs.SetInt("Level", 3);
+            SceneManager.LoadScene(3);
+        } else {
+            SceneManager.LoadScene(3);
+        }
     }
 }
