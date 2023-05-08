@@ -353,3 +353,4 @@ I never heard of this before, but it was super useful throughout the project:
     }
 
 *This script continuously moves the object back and forth between -15 and 15 on the x-axis, with a move duration of 3 seconds for each leg of the journey. You can adjust the moveDistance and moveDuration variables to change the speed and distance of the movement.*
+
