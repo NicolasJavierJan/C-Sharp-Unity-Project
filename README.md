@@ -13,3 +13,4 @@ I created a "Fun Mode" where there are flashing lights in a rainbow gradient. It
 **Background change:** The background of the first Screen and the levels changes colors. This is done by adding a Script to the panel. By default, Fun Mode is deactivated. 
 **Player Trail:** The player has a rainbow trail! The looks of the game have been heavily influenced by NyanCat.
 **Story Mode:** A Story Mode has been successfully added. The Player has the button for the first level available at start. When the player makes a goal in Level 01, the game moves to Level 02, and on quit the button for level 2 is interactable. Same with level 02 to level 03.
+**Streaker:** The Streaker has been successfully added. It is a crow that appear randomly in the first sixty seconds in every level.
