@@ -354,3 +354,86 @@ I never heard of this before, but it was super useful throughout the project:
 
 *This script continuously moves the object back and forth between -15 and 15 on the x-axis, with a move duration of 3 seconds for each leg of the journey. You can adjust the moveDistance and moveDuration variables to change the speed and distance of the movement.*
 
+### MultiPlayer
+
+**Ok so now I have two players in my scene. I already deactivated my PlayerMove Script for one of them, so they don't move at the same time. Question is: how can I save my players (probably in a list?) and deactivate/activate scripts on them?**
+
+*To save and manage multiple players in a scene, you can use a list or an array to store references to your player objects. Here's an example:*
+
+    using UnityEngine;
+    using System.Collections.Generic;
+
+    public class GameManager : MonoBehaviour
+    {
+        public List<PlayerMove> players = new List<PlayerMove>();
+
+        // Add players to the list at the start of the game
+        void Start()
+        {
+            PlayerMove[] playerObjects = FindObjectsOfType<PlayerMove>();
+            players.AddRange(playerObjects);
+        }
+
+        // Deactivate scripts on all players
+        public void DeactivateAllPlayerScripts()
+        {
+            foreach (PlayerMove player in players)
+            {
+                player.enabled = false;
+            }
+        }
+
+        // Activate scripts on all players
+        public void ActivateAllPlayerScripts()
+        {
+            foreach (PlayerMove player in players)
+            {
+                player.enabled = true;
+            }
+        }
+    }
+
+*In this example, we have a GameManager script that manages the players. The players list stores references to the PlayerMove scripts attached to each player object.*
+
+*In the Start method, we find all the player objects in the scene using FindObjectsOfType<PlayerMove>() and add them to the players list.*
+
+*The DeactivateAllPlayerScripts method deactivates the PlayerMove script on all players in the list by setting the enabled property to false.*
+
+*The ActivateAllPlayerScripts method activates the PlayerMove script on all players in the list by setting the enabled property to true.*
+
+*You can access the GameManager script from any other script in your scene using GetComponent<GameManager>(). Then you can call the DeactivateAllPlayerScripts or ActivateAllPlayerScripts methods to control the player scripts as needed.*
+
+*Remember to attach the GameManager script to a game object in your scene for it to work properly.*
+
+### Multi-Camera
+
+**When the scene restarts, the findobjectsoftype camera returns the cameras not in order. I want a way to, once they are returned, order them by the hyerarchy and THEN save them in the array**
+
+*If you want to order the cameras retrieved by FindObjectsOfType<Camera>() based on their hierarchy order, you can sort the array using the System.Linq namespace and the OrderBy LINQ method. Here's an updated example:*
+
+    using UnityEngine;
+    using System.Linq;
+
+    public class CameraOrderGetter : MonoBehaviour
+    {
+        private void Start()
+        {
+            // Get all the cameras in the scene
+            Camera[] cameras = FindObjectsOfType<Camera>();
+
+            // Sort the cameras based on their sibling index in the Hierarchy
+            cameras = cameras.OrderBy(camera => camera.transform.GetSiblingIndex()).ToArray();
+
+            // Print the cameras in the order they appear in the Hierarchy
+            foreach (Camera camera in cameras)
+            {
+                Debug.Log(camera.name);
+            }
+        }
+    }
+
+*In this updated example, after retrieving the cameras with FindObjectsOfType<Camera>(), the array is sorted using OrderBy and the GetSiblingIndex() method to determine their hierarchy order. The sorted array is then assigned back to the cameras variable.*
+
+*Now, the cameras will be ordered based on their hierarchy index, ensuring they are in the correct order in the array.*
+
+I ended up changing the "GetSiblingIndex" for a camera.gameObject.name.
