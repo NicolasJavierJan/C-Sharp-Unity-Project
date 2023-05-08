@@ -52,7 +52,7 @@ public class PlayerMove : MonoBehaviour
 
     void Movement() {
         // Sorting the Z dimension first..
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             if (_movement.z >= 0)
             {
@@ -66,7 +66,7 @@ public class PlayerMove : MonoBehaviour
                 _movement.z += MoveVelocityGain * moveReverseMomentum * Time.deltaTime;
                 //_movement.z = Mathf.Min(0, _movement.z);
             }
-        } else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        } else if (Input.GetKey(KeyCode.DownArrow))
         {
             if (_movement.z <= 0)
             {
@@ -101,7 +101,7 @@ public class PlayerMove : MonoBehaviour
 
         
         // Same as above, but in the left/right of the X dimension
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             if (_movement.x >= 0)
             {
@@ -116,7 +116,7 @@ public class PlayerMove : MonoBehaviour
                 //_movement.x = Mathf.Min(0, _movement.x);
             }
 
-        } else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        } else if (Input.GetKey(KeyCode.LeftArrow))
         {
             if (_movement.x <= 0)
             {

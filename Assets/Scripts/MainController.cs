@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class MainController : MonoBehaviour
 {
     public Button Level2;
     public Button Level3;
+
+    public TMP_Text levelone;
+    public TMP_Text leveltwo;
+    public TMP_Text levelthree;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +34,22 @@ public class MainController : MonoBehaviour
                 Level2 = buttonLevel3.GetComponent<Button>();
                 Level2.interactable = true;
             }
-            
+            if (PlayerPrefs.HasKey("Level1Record")){
+                GameObject levelOneRecord = GameObject.Find("BestTime1");
+                levelone = levelOneRecord.GetComponent<TMP_Text>();
+                levelone.text = "Level 1: " + PlayerPrefs.GetInt("Level1Record").ToString("F2");
+            }
+            if (PlayerPrefs.HasKey("Level2Record")){
+                GameObject levelTwoRecord = GameObject.Find("BestTime2");
+                leveltwo = levelTwoRecord.GetComponent<TMP_Text>();
+                leveltwo.text = "Level 2: " + PlayerPrefs.GetInt("Level2Record").ToString("F2");
+            }
+            if (PlayerPrefs.HasKey("Level3Record")){
+                GameObject levelThreeRecord = GameObject.Find("BestTime3");
+                levelthree = levelThreeRecord.GetComponent<TMP_Text>();
+                levelthree.text = "Level 3: " + PlayerPrefs.GetInt("Level3Record").ToString("F2");
+            }
         }
-        
     }
 
     // Update is called once per frame
@@ -47,6 +65,9 @@ public class MainController : MonoBehaviour
     public void QuitGame()
     {
         PlayerPrefs.DeleteKey("Level");
+        PlayerPrefs.DeleteKey("Level1Record");
+        PlayerPrefs.DeleteKey("Level2Record");
+        PlayerPrefs.DeleteKey("Level3Record");
 
         #if UNITY_EDITOR
             PlayerPrefs.DeleteKey("FunMode");

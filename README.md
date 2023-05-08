@@ -26,4 +26,6 @@ I created a "Fun Mode" where there are flashing lights in a rainbow gradient. It
 
 **Multi-Camera Angle:** The Game now has 4 cameras. Three cameras show the ball and follow the ball from different perspectives. The fourth camera follows the active player. They are changed with the key C. It is only available in Levels 2 and 3.
 
+**Time-Limit and Record Tables:** The Game has a table in the Main Page (I had too much text to begin with so it kinda looks ugly) where the player can see their record in each of the levels. If they do a better time, it gets saved, otherwise it does not. If the player takes more time to finish the level the record also does not get saved (for example, if the player takes 35 seconds to finish the first level it won't be saved.). When there's 10% of the time left, the timer glows red and there's a foghorn sound.
+
 
